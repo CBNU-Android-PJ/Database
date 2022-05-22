@@ -15,10 +15,10 @@ public class UserDataManage {
     public UserDataManage(){
         try {
             Class.forName("org.sqlite.JDBC");
-            String DBfile_locaton = "jdbc:sqlite:C:\\sqlitestudio-3.3.3\\naengsiljang.sqlite3";     //db파일 위치
-            connection = DriverManager.getConnection(DBfile_locaton);
+            String DBfile_location = "jdbc:sqlite:C:\\sqlitestudio-3.3.3\\naengsiljang.sqlite3";     //db파일 위치
+            connection = DriverManager.getConnection(DBfile_location);
             statement =connection.createStatement();
-            System.out.println("============Database connection complete============");
+            System.out.println("============Database connection complete(UserDataManage)============");
 
         } catch (Exception e){
             System.out.println("생성자: 데이터베이스 연결 오류(sqlite-jdbc): " + e.getMessage());
@@ -40,10 +40,13 @@ public class UserDataManage {
     }
 
     //회원가입 함수
-    protected void Join(String name, String user_id, String password){
+    protected boolean Join(String name, String user_id, String password){
         try{
             int id = 0;     //회원의 id 저장할 변수. (user_id 아님. PRIMARY KEY)
 
+            if(IsUserExist(user_id)){       //이미 존재하는 유저이면
+                return false;     //함수 탈출
+            }
             String SQL = "INSERT INTO user_info(name, user_id, password) VALUES(" + name + ", " + user_id + ", " + password + ");";
             int is_updated = statement.executeUpdate(SQL);
             System.out.println("업데이트 건 수 : " + is_updated);
@@ -54,10 +57,10 @@ public class UserDataManage {
             }
             System.out.println(id);     //임시 출력
             CreateRefrigerator(id);     //회원가입 성공하면, 나의 냉장고 테이블 생성.
-
         } catch (Exception e){
             System.out.println("Join 함수: 데이터베이스 입력 오류/ Code: " + e.getMessage());
         }
+        return true;    //정상적으로 회원가입 되면 true
     }
 
     //로그인 함수
@@ -80,7 +83,7 @@ public class UserDataManage {
         try {
             String SQL = "UPDATE user_info SET password= " + password + " WHERE name="  + name + ";";
             int is_updated = statement.executeUpdate(SQL);
-            System.out.println("업데이트 건 수 : " + is_updated);
+            System.out.println("ModifyUserInfo 함수: 업데이트 건 수 : " + is_updated);
         } catch (Exception e){
             System.out.println("ModifyUserInfo 함수: 데이터베이스 입력 오류/ Code: " + e.getMessage());
         }
@@ -88,13 +91,14 @@ public class UserDataManage {
 
     //나의 냉장고 테이블 생성 함수
     protected void CreateRefrigerator(int id){
-        /*
         try {
-
+            String SQL = "CREATE TABLE user" + id + "(id INTEGER primary key, user_id INTEGER, ingredient TEXT, deadline TEXT);";
+            int is_updated = statement.executeUpdate(SQL);
+            System.out.println("CreateRefrigerator 함수: 업데이트 건 수 : " + is_updated);
         } catch (Exception e){
             System.out.println("CreateRefrigerator 함수: 테이블 생성 오류/ Code: " + e.getMessage());
         }
-        */
+
     }
 
 }

@@ -6,6 +6,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 //import org.openqa.selenium.interactions.SourceType;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import java.util.*;
 import java.time.Duration;
@@ -18,6 +22,10 @@ public class Crawling {
     private WebDriverWait webDriverWait;    //어떠한 동작 후 명시적으로 기다리는 동작을 수행하는 객체
     private Actions actions;    //키보드, 마우스 클릭같은 이벤트를 다루는 객체
     private String url;         //크롤링할 페이지 url
+
+    private Connection connection;
+    private Statement statement;
+    private ResultSet resultset;
 
     //chromedriver.exe 설치 경로
     public static String WEB_DRIVER_ID  = "webdriver.chrome.driver";
@@ -36,6 +44,17 @@ public class Crawling {
 
         webDriver = new ChromeDriver(options);
         url = "https://wtable.co.kr/recipes";       //우리의 식탁url
+
+        try {           //SQLite데이터베이스 연결
+            Class.forName("org.sqlite.JDBC");
+            String DBfile_location = "jdbc:sqlite:C:\\sqlitestudio-3.3.3\\naengsiljang.sqlite3";     //db파일 위치
+            connection = DriverManager.getConnection(DBfile_location);
+            statement =connection.createStatement();
+            System.out.println("============Database connection complete(Crawling)============");
+
+        } catch (Exception e){
+            System.out.println("생성자: 데이터베이스 연결 오류(sqlite-jdbc): " + e.getMessage());
+        }
     }
 
     //웹사이트 진입
@@ -60,22 +79,27 @@ public class Crawling {
 
             webDriver.findElement(By.xpath("//*[@id=\"__next\"]/div/main/div/div/div/section[3]/ul/li[2]")).click();  //메인요리 버튼 찾고 클릭
             webDriver.findElement(By.xpath("//*[@id=\"__next\"]/div/main/div/div/div/section[3]/div[2]/div/select/option[3]")).click();   //난이도순 클릭
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
-            int cnt = 1;        //메뉴뉴 갯수 셀 변수
-            while(cnt <= 1){        //a태그 하나씩 클릭해서 들어가면서 이제 메뉴, 재료 크롤링 해야함.
+            for(int i=0; i<21; i++){        //메뉴 총 846개 있는데, 스크롤을 내려야 요리 엘리먼트가 html에 생겨남.
+                javascriptExecutor.executeScript("window.scrollBy(0, 5000)");       //y스크롤 1700 내림
+                Thread.sleep(1000);
+            }
+
+            //*[@id="__next"]/div/main/div/div/div/section[3]/section/div/div/div/a[808]
+            int cnt = 1;        //메뉴 갯수 셀 변수
+            while(cnt <= 805){        //a태그 하나씩 클릭해서 들어가면서 이제 메뉴, 재료 크롤링 해야함.(총 805개)
                 ArrayList<String> ingredients = new ArrayList<>();      //재료들을 저장할 ArrayList
+
                 String xpath = "//*[@id=\"__next\"]/div/main/div/div/div/section[3]/section/div/div/div/a[" + cnt + "]";    //a태그가 1부터 846까지 있음.(메뉴)
                 menu_link = webDriver.findElement(By.xpath(xpath)).getAttribute("href");        //메뉴 링크
                 menu = webDriver.findElement(By.xpath(xpath + "/div/p[2]")).getText();       //메뉴 이름
 
                 webDriver.findElement(By.xpath(xpath)).click();     //메뉴 클릭
                 Thread.sleep(1000);     //메뉴 클릭해서 페이지 이동 후 1초 기다림
-                //javascriptExecutor.executeScript("window.scrollBy(0, 800)");       //y스크롤 1000 내림
                 System.out.println("메뉴 링크: " + menu_link);  //확인용
                 System.out.println("메뉴: " + menu);   //확인용
 
-                //*[@id="__next"]/div/main/div[2]/div[1]/div/ul/li[1]/ul/li[1]/div/div[1]
                 List<WebElement> ingredient_elements = webDriver.findElements(By.className("fCbbYE"));  //재료 div태그. 이제 그 아래 div[1]을 가져와야함.
                 int ingredient_size = ingredient_elements.size();     //재료 개수
 
@@ -89,7 +113,10 @@ public class Crawling {
                 for(int i=0; i<ingredient_size; i++){
                     System.out.println(ingredients.get(i));
                 }
-                InsertDataToDB(menu, menu_link, ingredients);       //크롤링한 데이터 DB에 저장장
+                InsertRecipeToDB(menu, menu_link, ingredients, ingredient_size);       //크롤링한 데이터 DB에 저장
+                cnt++;
+                webDriver.navigate().back();        //뒤로가기
+                Thread.sleep(1000);
             }
        } catch (Exception e){
             e.printStackTrace();        //예외 출력
@@ -97,8 +124,33 @@ public class Crawling {
     }
 
     //크롤링 데이터 데이터베이스에 저장
-    public void InsertDataToDB(String menu, String menu_link, ArrayList<String> ingredients){
+    public void InsertRecipeToDB(String menu, String menu_link, ArrayList<String> ingredients, int ingredient_size){
+        try {
+            String SQL = "INSERT INTO recipe(menu, link, ";
+            for(int i=1; i<=ingredient_size; i++){
+                if(i==ingredient_size){     //마지막 원소이면
+                    SQL = SQL + "ingre" + i + ") ";
+                }
+                else {
+                    SQL = SQL + "ingre" + i + ", ";
+                }
+            }
+            SQL = SQL + "VALUES('" + menu + "', '" + menu_link + "', ";
+            for(int i=0; i<ingredient_size; i++){
+                if(i==ingredient_size - 1){     //마지막 원소이면
+                    SQL = SQL +"'" + ingredients.get(i) + "');";
+                }
+                else{
+                    SQL = SQL + "'" +  ingredients.get(i) + "', ";
+                }
+            }
+            System.out.println(SQL);
+            int is_updated = statement.executeUpdate(SQL);
+            System.out.println("업데이트 건 수 : " + is_updated);
 
+        } catch (Exception e){
+            System.out.println("InsertRecipeToDB 함수: 데이터베이스 입력 오류/ Code: " + e.getMessage());
+        }
     }
 
 
