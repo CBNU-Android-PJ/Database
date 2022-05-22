@@ -15,7 +15,7 @@ public class UserDataManage {
     public UserDataManage(){
         try {
             Class.forName("org.sqlite.JDBC");
-            String DBfile_location = "jdbc:sqlite:C:\\sqlitestudio-3.3.3\\naengsiljang.sqlite3";     //db파일 위치
+            String DBfile_location = "jdbc:sqlite:naengsiljang.sqlite3";     //db파일 위치
             connection = DriverManager.getConnection(DBfile_location);
             statement =connection.createStatement();
             System.out.println("============Database connection complete(UserDataManage)============");

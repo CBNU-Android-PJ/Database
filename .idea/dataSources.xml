@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="naengsiljang.sqlite3" uuid="6d579574-19ef-40dc-8122-35e09defdbe7">
+    <data-source source="LOCAL" name="naengsiljang.sqlite3" uuid="1cc7356c-4faa-433c-ac80-8223f49067d9">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\sqlitestudio-3.3.3\naengsiljang.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\InteliJ_workspace\crawling\recipe_crawling\naengsiljang.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$PROJECT_DIR$/../sqlite_prac/sqlite-jdbc-3.36.0.3.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>
