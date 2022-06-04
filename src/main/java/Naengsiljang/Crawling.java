@@ -85,10 +85,9 @@ public class Crawling {
                 javascriptExecutor.executeScript("window.scrollBy(0, 5000)");       //y스크롤 1700 내림
                 Thread.sleep(1000);
             }
-
-            //*[@id="__next"]/div/main/div/div/div/section[3]/section/div/div/div/a[808]
-            int cnt = 1;        //메뉴 갯수 셀 변수
-            while(cnt <= 805){        //a태그 하나씩 클릭해서 들어가면서 이제 메뉴, 재료 크롤링 해야함.(총 805개)
+//*[@id="__next"]/div/main/div/div/div/section[3]/section/div/div/div/a[767]
+            int cnt = 770;        //메뉴 갯수 셀 변수
+            while(cnt <= 830){        //a태그 하나씩 클릭해서 들어가면서 이제 메뉴, 재료 크롤링 해야함.(총 805개)
                 ArrayList<String> ingredients = new ArrayList<>();      //재료들을 저장할 ArrayList
 
                 String xpath = "//*[@id=\"__next\"]/div/main/div/div/div/section[3]/section/div/div/div/a[" + cnt + "]";    //a태그가 1부터 846까지 있음.(메뉴)
@@ -125,25 +124,19 @@ public class Crawling {
 
     //크롤링 데이터 데이터베이스에 저장
     public void InsertRecipeToDB(String menu, String menu_link, ArrayList<String> ingredients, int ingredient_size){
+        String ingredients_str = "'";
         try {
-            String SQL = "INSERT INTO recipe(menu, link, ";
-            for(int i=1; i<=ingredient_size; i++){
-                if(i==ingredient_size){     //마지막 원소이면
-                    SQL = SQL + "ingre" + i + ") ";
-                }
-                else {
-                    SQL = SQL + "ingre" + i + ", ";
-                }
-            }
+            String SQL = "INSERT INTO recipe_version2(menu, link, ingredients) ";
+
             SQL = SQL + "VALUES('" + menu + "', '" + menu_link + "', ";
             for(int i=0; i<ingredient_size; i++){
-                if(i==ingredient_size - 1){     //마지막 원소이면
-                    SQL = SQL +"'" + ingredients.get(i) + "');";
-                }
-                else{
-                    SQL = SQL + "'" +  ingredients.get(i) + "', ";
+                if(i==ingredient_size - 1){         //재료 배열의 마지막 원소이면
+                    ingredients_str = ingredients_str + ingredients.get(i) + "');";       //마지막 재료 넣고 끝
+                }else{
+                    ingredients_str = ingredients_str + ingredients.get(i) + "/";      //재료를 하나씩 넣고 /로 구분
                 }
             }
+            SQL = SQL + ingredients_str;
             System.out.println(SQL);
             int is_updated = statement.executeUpdate(SQL);
             System.out.println("업데이트 건 수 : " + is_updated);
