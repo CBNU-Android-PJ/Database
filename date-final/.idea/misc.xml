@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/drawable/img4_size.xml" value="0.153" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/font/custom_font_family.xml" value="0.3902564102564103" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/activity_login.xml" value="0.21422101449275363" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/activity_main.xml" value="0.1728055077452668" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/activity_register.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/bell_btn.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment1.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment10.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment2.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment3.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment4.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment5.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment6.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment7.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment8.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/fragment9.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/recipe.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/LoginRegister/app/src/main/res/layout/user_btn.xml" value="0.2921195652173913" />
+        <entry key="..\:/AndroidStudio_workspace/Naengsiljang_Android/app/src/main/res/drawable/button_background.xml" value="0.2405" />
+        <entry key="..\:/AndroidStudio_workspace/Naengsiljang_Android/app/src/main/res/layout/activity_ingredient_select.xml" value="0.2621359223300971" />
+        <entry key="..\:/AndroidStudio_workspace/Naengsiljang_Android/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudio_workspace/Naengsiljang_Android/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidStudio_workspace/Naengsiljang_Android/app/src/main/res/layout/activity_register.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudio_workspace/Naengsiljang_Android/app/src/main/res/layout/recipe.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidStudio_workspace/Naengsiljang_Android/app/src/main/res/layout/user_btn.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/activity_all_recipe.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/activity_date.xml" value="0.264" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/activity_date_picker.xml" value="0.2" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/activity_ingredient_select.xml" value="0.12132725430597771" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/date_item_recycler.xml" value="0.2" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/activity_all_recipe.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/activity_combine.xml" value="0.16168478260869565" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/activity_date.xml" value="0.1" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/activity_date_picker.xml" value="0.12132725430597771" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/activity_ingredient_select.xml" value="0.1" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/activity_myrefrigerator.xml" value="0.16168478260869565" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete 2/app/src/main/res/layout/date_item_recycler.xml" value="0.2441123188405797" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete re/app/src/main/res/layout/activity_combine.xml" value="0.16168478260869565" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete re/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/djaxl/AndroidStudioProjects/user-interface-mid-complete re/app/src/main/res/layout/activity_myrefrigerator.xml" value="0.1" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/drawable-v24/button_round.xml" value="0.11" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/drawable-v24/button_round_press.xml" value="0.11" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/drawable/banner_button_background.xml" value="0.1295" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/drawable/button_background.xml" value="0.1295" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/drawable/round_button.xml" value="0.11" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/layout/activitiy_combine_final.xml" value="0.24003623188405798" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/layout/activity_all_recipe.xml" value="0.24003623188405798" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/layout/activity_combine.xml" value="0.24003623188405798" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/layout/activity_date.xml" value="0.1" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/layout/activity_date_picker.xml" value="0.1" />
+        <entry key="..\:/user-interface-date/user-interface-date/date-final/app/src/main/res/layout/activity_login.xml" value="0.24003623188405798" />
+        <entry key="..\:/user-interface-test/date-final/app/src/main/res/layout/activitiy_combine_final.xml" value="0.22962962962962963" />
+        <entry key="..\:/user-interface-test/date-final/app/src/main/res/layout/activity_all_recipe.xml" value="0.25925925925925924" />
+        <entry key="..\:/user-interface-test/date-final/app/src/main/res/layout/activity_combine.xml" value="0.1814814814814815" />
+        <entry key="..\:/user-interface-test/date-final/app/src/main/res/layout/activity_date.xml" value="0.22962962962962963" />
+        <entry key="..\:/user-interface-test/date-final/app/src/main/res/layout/activity_date_picker.xml" value="0.22962962962962963" />
+        <entry key="..\:/user-interface-test/date-final/app/src/main/res/layout/activity_ingredient_select.xml" value="0.22962962962962963" />
+        <entry key="..\:/user-interface-test/date-final/app/src/main/res/layout/row_listview.xml" value="0.2462962962962963" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
